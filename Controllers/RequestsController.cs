@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,10 @@ namespace PRSWebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Request>>> GetRequests()
         {
-            return await _context.Requests.ToListAsync();
+            return await _context.Requests
+                .Include(r => r.User)
+                .Include(l => l.LineItems)
+                .ToListAsync();
         }
 
         // GET: api/Requests/5
@@ -77,6 +81,10 @@ namespace PRSWebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Request>> PostRequest(Request request)
         {
+            if (!ModelState.IsValid) { return BadRequest(ModelState); }
+            request.RequestNumber = await GenerateRequestNumber();
+            request.Status = "New";
+            request.SubmittedDate = DateTime.UtcNow;
             _context.Requests.Add(request);
             await _context.SaveChangesAsync();
 
@@ -97,6 +105,52 @@ namespace PRSWebApi.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        [Authorize()]
+        [HttpPut("{requestId}/status")]
+
+        public async Task<IActionResult> UpdateRequestStatus(int requestId, RequestStatusUpdateDto statusUpdate)
+        {
+            var request = await _context.Requests
+                .Include(r => r.LineItems) // Ensure LineItems are loaded
+                .FirstOrDefaultAsync(r => r.RequestId == requestId);
+
+            if (request == null)
+            {
+                return NotFound();
+            }
+
+            if (request.LineItems == null || request.LineItems.Count == 0)
+            {
+                return BadRequest(new { message = "Cannot approve/reject a request without line items." });
+            }
+
+            // Ensure status is valid
+            if (statusUpdate.Status != "Approved" && statusUpdate.Status != "Rejected")
+            {
+                return BadRequest(new { message = "Invalid status. Must be 'Approved' or 'Rejected'." });
+            }
+
+            // Update status and rejection reason if applicable
+            request.Status = statusUpdate.Status;
+            request.ReasonForRejection = statusUpdate.Status == "Rejected" ? statusUpdate.ReasonForRejection : null;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = $"Request {statusUpdate.Status} successfully." });
+        }
+        private async Task<string> GenerateRequestNumber()
+        {
+            string today = DateTime.UtcNow.ToString("yyyyMMdd"); // Example: "20250228"
+
+            int count = await _context.Requests
+                .Where(r => r.RequestNumber.StartsWith(today))
+                .CountAsync();
+
+            string sequence = (count + 1).ToString().PadLeft(4, '0'); // Ensures "0001", "0010", etc.
+
+            return $"{today}{sequence}"; // Example: "202502280001"
         }
 
         private bool RequestExists(int id)

@@ -29,4 +29,5 @@ public partial class LineItem
     [ForeignKey("RequestId")]
     [InverseProperty("LineItems")]
     public virtual Request? Request { get; set; }
+
 }

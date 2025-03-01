@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace PRSWebApi.Models;
@@ -41,5 +42,6 @@ public partial class Product
 
     [ForeignKey("VendorId")]
     [InverseProperty("Products")]
-    public virtual Vendor Vendor { get; set; } = null!;
+    [JsonIgnore]
+    public Vendor? Vendor { get; set; } = null!;
 }

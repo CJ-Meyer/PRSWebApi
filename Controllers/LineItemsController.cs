@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,14 +25,20 @@ namespace PRSWebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<LineItem>>> GetLineItems()
         {
-            return await _context.LineItems.ToListAsync();
+            return await _context.LineItems
+                .Include(p => p.Product)
+                .Include(r => r.Request)
+                .ToListAsync();
         }
 
         // GET: api/LineItems/5
         [HttpGet("{id}")]
         public async Task<ActionResult<LineItem>> GetLineItem(int id)
         {
-            var lineItem = await _context.LineItems.FindAsync(id);
+            var lineItem = await _context.LineItems
+                .Include(p => p.Product)
+                .Include(r => r.Request)
+                .FirstOrDefaultAsync();
 
             if (lineItem == null)
             {
@@ -56,6 +63,7 @@ namespace PRSWebApi.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+                await UpdateRequestTotal(lineItem.RequestId ?? 0);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -80,6 +88,8 @@ namespace PRSWebApi.Controllers
             _context.LineItems.Add(lineItem);
             await _context.SaveChangesAsync();
 
+            await UpdateRequestTotal(lineItem.RequestId ?? 0);
+
             return CreatedAtAction("GetLineItem", new { id = lineItem.LineItemId }, lineItem);
         }
 
@@ -95,10 +105,24 @@ namespace PRSWebApi.Controllers
 
             _context.LineItems.Remove(lineItem);
             await _context.SaveChangesAsync();
-
+            await UpdateRequestTotal(lineItem.RequestId ?? 0);
             return NoContent();
         }
+        private async Task UpdateRequestTotal(int requestId)
+        {
+            var request = await _context.Requests.FindAsync(requestId);
+            if (request != null)
+            {
+                request.Total = await _context.LineItems
+                    .Where(li => li.RequestId == requestId && li.ProductId != null) // Ensure ProductId is not null
+                    .SumAsync(li => li.Quantity * _context.Products
+                        .Where(p => p.ProductId == (int)li.ProductId) // Convert nullable `int?` to `int`
+                        .Select(p => p.Price)
+                        .FirstOrDefault());
 
+                await _context.SaveChangesAsync(); // Save the updated total
+            }
+        }
         private bool LineItemExists(int id)
         {
             return _context.LineItems.Any(e => e.LineItemId == id);

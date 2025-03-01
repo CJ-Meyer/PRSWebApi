@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace PRSWebApi.Models;
 
 [Table("Request")]
-public partial class Request
+public class Request
 {
     [Key]
     [Column("RequestID")]
@@ -18,7 +19,7 @@ public partial class Request
 
     [StringLength(20)]
     [Unicode(false)]
-    public string RequestNumber { get; set; } = null!;
+    public string? RequestNumber { get; set; }
 
     [StringLength(100)]
     [Unicode(false)]
@@ -36,22 +37,21 @@ public partial class Request
 
     [StringLength(20)]
     [Unicode(false)]
-    public string? Status { get; set; }
+    public string? Status { get; set; } = "New";
 
     [Column(TypeName = "decimal(10, 2)")]
-    public decimal? Total { get; set; }
+    public decimal? Total { get; set; } = 0;
 
     [Column(TypeName = "datetime")]
-    public DateTime? SubmittedDate { get; set; }
-
+    public DateTime? SubmittedDate { get; set; } = DateTime.UtcNow;
     [StringLength(100)]
     [Unicode(false)]
     public string? ReasonForRejection { get; set; }
 
     [InverseProperty("Request")]
     public virtual ICollection<LineItem> LineItems { get; set; } = new List<LineItem>();
-
     [ForeignKey("UserId")]
     [InverseProperty("Requests")]
-    public virtual User User { get; set; } = null!;
+    [JsonIgnore]
+    public User? User { get; set; }
 }

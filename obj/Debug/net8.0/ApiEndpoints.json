@@ -327,6 +327,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PRSWebApi.Controllers.RequestsController",
+    "Method": "UpdateRequestStatus",
+    "RelativePath": "api/Requests/{requestId}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "statusUpdate",
+        "Type": "PRSWebApi.Models.RequestStatusUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PRSWebApi.Controllers.UsersController",
     "Method": "GetUsers",
     "RelativePath": "api/Users",
