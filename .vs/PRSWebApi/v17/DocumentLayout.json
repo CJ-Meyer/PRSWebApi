@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|d:\\repos\\max\\c-sharp-repos\\prswebapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|d:\\repos\\max\\c-sharp-repos\\prswebapi\\models\\userlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|solutionrelative:models\\userlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|d:\\repos\\max\\c-sharp-repos\\prswebapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|d:\\repos\\max\\c-sharp-repos\\prswebapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|d:\\repos\\max\\c-sharp-repos\\prswebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +27,8 @@
       "RelativeMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|solutionrelative:controllers\\vendorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|d:\\repos\\max\\c-sharp-repos\\prswebapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|d:\\repos\\max\\c-sharp-repos\\prswebapi\\controllers\\requestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|solutionrelative:controllers\\requestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|d:\\repos\\max\\c-sharp-repos\\prswebapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{17787B39-8597-4954-AAD7-D22C0515AF80}|PRSWebApi.csproj|d:\\repos\\max\\c-sharp-repos\\prswebapi\\controllers\\lineitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,23 +46,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserLogin.cs",
+              "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Models\\UserLogin.cs",
+              "RelativeDocumentMoniker": "Models\\UserLogin.cs",
+              "ToolTip": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Models\\UserLogin.cs",
+              "RelativeToolTip": "Models\\UserLogin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T04:56:38.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAmwBIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T04:55:32.398Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAIwGkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T15:09:03.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T15:13:49.719Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "VendorsController.cs",
               "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Controllers\\VendorsController.cs",
               "RelativeDocumentMoniker": "Controllers\\VendorsController.cs",
@@ -66,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "RequestsController.cs",
               "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Controllers\\RequestsController.cs",
               "RelativeDocumentMoniker": "Controllers\\RequestsController.cs",
@@ -78,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
@@ -90,31 +135,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "LineItemsController.cs",
               "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Controllers\\LineItemsController.cs",
               "RelativeDocumentMoniker": "Controllers\\LineItemsController.cs",
               "ToolTip": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Controllers\\LineItemsController.cs",
               "RelativeToolTip": "Controllers\\LineItemsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T15:21:45.334Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
-              "ToolTip": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T15:09:03.218Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "PRSDbContext.cs",
               "DocumentMoniker": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\Models\\PRSDbContext.cs",
               "RelativeDocumentMoniker": "Models\\PRSDbContext.cs",

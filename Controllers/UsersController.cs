@@ -99,7 +99,13 @@ namespace PRSWebApi.Controllers
 
             return NoContent();
         }
-
+        [HttpPost("login")]
+        public async Task<ActionResult<User>> Login(UserLogin user)
+        {
+            var users = await _context.Users.SingleOrDefaultAsync(u => u.Username == user.Username && u.Password == user.Password);
+            if (users == null) return NotFound();
+            return users;
+        }
         private bool UserExists(int id)
         {
             return _context.Users.Any(e => e.UserId == id);

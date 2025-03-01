@@ -436,6 +436,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PRSWebApi.Controllers.UsersController",
+    "Method": "Login",
+    "RelativePath": "api/Users/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "PRSWebApi.Models.UserLogin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PRSWebApi.Models.User",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "PRSWebApi.Controllers.VendorsController",
     "Method": "GetVendors",
     "RelativePath": "api/Vendors",
