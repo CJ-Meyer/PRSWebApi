@@ -15,10 +15,10 @@ public partial class LineItem
     public int LineItemId { get; set; }
 
     [Column("RequestID")]
-    public int? RequestId { get; set; }
+    public int RequestId { get; set; }
 
     [Column("ProductID")]
-    public int? ProductId { get; set; }
+    public int ProductId { get; set; }
 
     public int Quantity { get; set; }
 

@@ -63,7 +63,7 @@ namespace PRSWebApi.Controllers
             try
             {
                 await _context.SaveChangesAsync();
-                await UpdateRequestTotal(lineItem.RequestId ?? 0);
+                await UpdateRequestTotal(lineItem.RequestId);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -88,7 +88,7 @@ namespace PRSWebApi.Controllers
             _context.LineItems.Add(lineItem);
             await _context.SaveChangesAsync();
 
-            await UpdateRequestTotal(lineItem.RequestId ?? 0);
+            await UpdateRequestTotal(lineItem.RequestId);
 
             return CreatedAtAction("GetLineItem", new { id = lineItem.LineItemId }, lineItem);
         }
@@ -105,7 +105,7 @@ namespace PRSWebApi.Controllers
 
             _context.LineItems.Remove(lineItem);
             await _context.SaveChangesAsync();
-            await UpdateRequestTotal(lineItem.RequestId ?? 0);
+            await UpdateRequestTotal(lineItem.RequestId);
             return NoContent();
         }
         private async Task UpdateRequestTotal(int requestId)
