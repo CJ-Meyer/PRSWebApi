@@ -109,6 +109,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PRSWebApi.Controllers.LineItemsController",
+    "Method": "GetLineItemsForRequestUnderReview",
+    "RelativePath": "api/LineItems/lines-for-req/{reqId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reqId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PRSWebApi.Controllers.ProductsController",
     "Method": "GetProducts",
     "RelativePath": "api/Products",
@@ -328,20 +344,78 @@
   },
   {
     "ContainingType": "PRSWebApi.Controllers.RequestsController",
-    "Method": "UpdateRequestStatus",
-    "RelativePath": "api/Requests/{requestId}/status",
+    "Method": "SubmitForReview",
+    "RelativePath": "api/Requests/{id}/submit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRSWebApi.Controllers.RequestsController",
+    "Method": "ApproveReview",
+    "RelativePath": "api/Requests/approve/{Id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "requestId",
+        "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "statusUpdate",
-        "Type": "PRSWebApi.Models.RequestStatusUpdateDto",
+        "Name": "approval",
+        "Type": "PRSWebApi.Models.ApprovalDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRSWebApi.Controllers.RequestsController",
+    "Method": "ListRequestsForReview",
+    "RelativePath": "api/Requests/list-review/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRSWebApi.Controllers.RequestsController",
+    "Method": "RejectReview",
+    "RelativePath": "api/Requests/reject/{Id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "rejection",
+        "Type": "PRSWebApi.Models.RejectionDto",
         "IsRequired": true
       }
     ],

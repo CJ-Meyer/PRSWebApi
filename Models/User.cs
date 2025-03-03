@@ -38,8 +38,6 @@ public partial class User
     [Unicode(false)]
     public string Email { get; set; } = null!;
 
-    public bool? Reviewer { get; set; }
-
     public bool? Admin { get; set; }
 
     [InverseProperty("User")]

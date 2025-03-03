@@ -40,7 +40,7 @@ public class Request
     public string? Status { get; set; } = "New";
 
     [Column(TypeName = "decimal(10, 2)")]
-    public decimal? Total { get; set; } = 0;
+    public decimal? Total { get; set; }
 
     [Column(TypeName = "datetime")]
     public DateTime? SubmittedDate { get; set; } = DateTime.UtcNow;
@@ -52,6 +52,6 @@ public class Request
     public virtual ICollection<LineItem> LineItems { get; set; } = new List<LineItem>();
     [ForeignKey("UserId")]
     [InverseProperty("Requests")]
-    [JsonIgnore]
+    
     public User? User { get; set; }
 }

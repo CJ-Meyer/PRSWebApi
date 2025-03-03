@@ -123,6 +123,34 @@ namespace PRSWebApi.Controllers
                 await _context.SaveChangesAsync(); // Save the updated total
             }
         }
+
+        [HttpGet("lines-for-req/{reqId}")]
+        public async Task<IActionResult> GetLineItemsForRequestUnderReview(int reqId)
+        {
+            var request = await _context.Requests
+                .Include(r => r.LineItems)
+                .FirstOrDefaultAsync(r => r.RequestId == reqId);
+
+            if (request == null)
+            {
+                return NotFound(new { message = "Request not found." });
+            }
+
+            if (request.Status != "Review")
+            {
+                return BadRequest(new { message = "Request is not under review." });
+            }
+
+            var lineItems = request.LineItems;
+
+            if (lineItems == null || lineItems.Count == 0)
+            {
+                return NotFound(new { message = "No line items found for this request." });
+            }
+
+            return Ok(lineItems);
+        }
+
         private bool LineItemExists(int id)
         {
             return _context.LineItems.Any(e => e.LineItemId == id);

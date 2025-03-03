@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PRSWebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b222d18b5cc633c3f72814a0e33b5f13e5fe48a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+816952e9ce8a0ba2b50cb7f69e684d9bb9de1487")]
 [assembly: System.Reflection.AssemblyProductAttribute("PRSWebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PRSWebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
