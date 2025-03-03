@@ -88,6 +88,7 @@ namespace PRSWebApi.Controllers
             request.RequestNumber = await GenerateRequestNumber();
             request.Status = "New";
             request.SubmittedDate = DateTime.UtcNow;
+            request.Total = 0;
             _context.Requests.Add(request);
             await _context.SaveChangesAsync();
 

@@ -136,11 +136,6 @@ namespace PRSWebApi.Controllers
                 return NotFound(new { message = "Request not found." });
             }
 
-            if (request.Status != "Review")
-            {
-                return BadRequest(new { message = "Request is not under review." });
-            }
-
             var lineItems = request.LineItems;
 
             if (lineItems == null || lineItems.Count == 0)

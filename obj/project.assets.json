@@ -7768,11 +7768,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\repos\\max\\c-sharp-repos\\PRSWebApi\\PRSWebApi.csproj",
+      "projectUniqueName": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\PRSWebApi.csproj",
       "projectName": "PRSWebApi",
-      "projectPath": "C:\\repos\\max\\c-sharp-repos\\PRSWebApi\\PRSWebApi.csproj",
+      "projectPath": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\PRSWebApi.csproj",
       "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
-      "outputPath": "C:\\repos\\max\\c-sharp-repos\\PRSWebApi\\obj\\",
+      "outputPath": "D:\\repos\\Max\\c-sharp-repos\\PRSWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
