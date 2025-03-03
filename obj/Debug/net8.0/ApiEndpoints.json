@@ -21,6 +21,22 @@
   },
   {
     "ContainingType": "PRSWebApi.Controllers.LineItemsController",
+    "Method": "PutLineItem",
+    "RelativePath": "api/LineItems",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lineItem",
+        "Type": "PRSWebApi.Models.LineItem",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRSWebApi.Controllers.LineItemsController",
     "Method": "PostLineItem",
     "RelativePath": "api/LineItems",
     "HttpMethod": "POST",
@@ -70,27 +86,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "PRSWebApi.Controllers.LineItemsController",
-    "Method": "PutLineItem",
-    "RelativePath": "api/LineItems/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "lineItem",
-        "Type": "PRSWebApi.Models.LineItem",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "PRSWebApi.Controllers.LineItemsController",
@@ -344,22 +339,6 @@
   },
   {
     "ContainingType": "PRSWebApi.Controllers.RequestsController",
-    "Method": "SubmitForReview",
-    "RelativePath": "api/Requests/{id}/submit",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PRSWebApi.Controllers.RequestsController",
     "Method": "ApproveReview",
     "RelativePath": "api/Requests/approve/{Id}",
     "HttpMethod": "PUT",
@@ -416,6 +395,22 @@
       {
         "Name": "rejection",
         "Type": "PRSWebApi.Models.RejectionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRSWebApi.Controllers.RequestsController",
+    "Method": "SubmitForReview",
+    "RelativePath": "api/Requests/submit-review/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

@@ -202,10 +202,10 @@ namespace PRSWebApi.Controllers
                 return BadRequest(new { message = "Request is already Rejected." });
             }
             if(rejection.Reason == null) return BadRequest(new { message = "Reason for rejection is required." });
-            request.Status = "Rejected";
-            request.ReasonForRejection = rejection.Reason;
             // request.ReasonForRejection -- is the request class
             // rejection.Reason -- is the RejectionDto class -- Input
+            request.Status = "Rejected";
+            request.ReasonForRejection = rejection.Reason;
             await _context.SaveChangesAsync();
 
             return Ok(request);
@@ -218,37 +218,32 @@ namespace PRSWebApi.Controllers
 
             if (user == null)
                 return NotFound(new { message = "User not found." });
-
-            if ((bool)!user.Admin)
-                return Unauthorized(new { message = "Only admins can approve or reject requests." });
             
             var requests = await _context.Requests
                 .Include(r => r.LineItems)
-                .Where(r => r.Status == "Review")
+                .Where(r => r.Status == "Review" && r.UserId != user.UserId)
                 .ToListAsync();
-            
+            foreach (var request in requests)
+            {
+                request.SubmittedDate = DateTime.Now;
+            }
             if (requests == null || requests.Count == 0)
             {
                 return NotFound(new { message = "No requests found for review." });
             }
-            foreach (var request in requests)
-            {
-                request.SubmittedDate = DateTime.UtcNow;
-            }
-
             return Ok(requests);
         }
         private async Task<string> GenerateRequestNumber()
         {
-            string today = DateTime.UtcNow.ToString("yyyyMMdd"); // Example: "20250228"
+            string today = DateTime.UtcNow.ToString("yyyyMMdd"); 
 
             int count = await _context.Requests
                 .Where(r => r.RequestNumber.StartsWith(today))
                 .CountAsync();
 
-            string sequence = (count + 1).ToString().PadLeft(4, '0'); // Ensures "0001", "0010", etc.
+            string sequence = (count + 1).ToString().PadLeft(4, '0'); 
 
-            return $"{today}{sequence}"; // Example: "202502280001"
+            return $"{today}{sequence}"; 
         }
 
 

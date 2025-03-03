@@ -38,7 +38,7 @@ namespace PRSWebApi.Controllers
             var lineItem = await _context.LineItems
                 .Include(p => p.Product)
                 .Include(r => r.Request)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(l => l.LineItemId == id);
 
             if (lineItem == null)
             {
@@ -50,10 +50,10 @@ namespace PRSWebApi.Controllers
 
         // PUT: api/LineItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutLineItem(int id, LineItem lineItem)
+        [HttpPut]
+        public async Task<IActionResult> PutLineItem(LineItem lineItem)
         {
-            if (id != lineItem.LineItemId)
+            if (!LineItemExists(lineItem.LineItemId))
             {
                 return BadRequest();
             }
@@ -67,7 +67,7 @@ namespace PRSWebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LineItemExists(id))
+                if (!LineItemExists(lineItem.LineItemId))
                 {
                     return NotFound();
                 }
